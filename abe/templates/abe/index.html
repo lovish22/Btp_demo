@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index Page</title>
+    </head>
+
+    <body>
+        <h1>Select Audio</h1>
+
+        <form method="POST"
+            action="{% url 'analysis' %}"
+            enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <label for="audio-select">Choose an audio:</label>
+            <select id="audio-select" name="audio">
+                {% for audio in audios %}
+                <option value="sx386">{{ audio.audio_name }}</option>
+                {% endfor %}
+            </select>
+
+            <br>
+
+            <label for="noise-type">Choose Noise Environment:</label>
+            <select id="noise-type" name="noise">
+                <option value="noNoise">Noiseless</option>
+                <option value="CarNoise">Car</option>
+                <option value="BabbleNoise">Babble</option>
+            </select>
+            <br>
+
+            <label for="noise-level">Choose Noise level:</label>
+            <select id="noise-level" name="noise_level">
+                <option value="0db">0db</option>
+                <option value="2db">2db</option>
+                <option value="5db">5db</option>
+                <option value="10db">10db</option>
+                <option value="15db">15db</option>
+            </select>
+            <br>
+
+            <button type="submit">Generate Results</button>
+        </form>
+    </body>
+</html>

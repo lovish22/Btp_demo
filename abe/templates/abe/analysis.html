@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Analysis page</title>
+    </head>
+
+    <body>
+        <h1>Audio Analysis</h1>
+
+        <label for="org_aud">Original Audio:</label>
+        <audio controls autoplay>
+            <source
+                src="{{aud.aud_file}}"
+                type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        <br><br><br>
+
+
+        <label for="pred_aud">Predicted Audio</label>
+        <audio id="pred_aud" controls>
+            <source src="{{pred_path}}" type="audio/wav">
+        </audio>
+        <br><br><br>
+        <label for="stoi_score">Stoi Score:</label>
+        <div id="stoi_score">{{stoi_score}}</div>
+    </body>
+</html>
